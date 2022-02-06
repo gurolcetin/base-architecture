@@ -1,6 +1,7 @@
-﻿using AdaBis.Dal.SqlServer.Abstract;
-using AdaBis.Dal.SqlServer.Concrete;
+﻿
 using BaseArchitecture.BLL.Abstract;
+using BaseArchitecture.DAL.Abstract;
+using BaseArchitecture.DAL.Concrete;
 
 namespace BaseArchitecture.BLL.Concrete
 {

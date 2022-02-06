@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BaseArchitecture.API;
+using Microsoft.EntityFrameworkCore;
 
-namespace AdaBis.Dal.SqlServer.Concrete
+namespace BaseArchitecture.DAL.Concrete
 {
     public class ApplicationDbContext : DbContext
     {
+        public DbSet<WeatherForecast> WeatherForecast { get; set; }
 
         public ApplicationDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
         {
@@ -13,6 +15,7 @@ namespace AdaBis.Dal.SqlServer.Concrete
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
         }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // optionsBuilder.UseLazyLoadingProxies();

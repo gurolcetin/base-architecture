@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AdaBis.Dal.SqlServer.Abstract
+namespace BaseArchitecture.DAL.Abstract
 {
     public interface IEfEntityDal<T> : IDisposable where T : class
     {

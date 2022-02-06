@@ -1,3 +1,5 @@
+using BaseArchitecture.DAL.Concrete;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,9 @@ builder.Services.AddSwaggerGen(s =>
 {
     s.SwaggerDoc("v1", new OpenApiInfo { Title = "Base Architecture API", Version = "v1" });
 });
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(connectionString));
 
 var app = builder.Build();
 

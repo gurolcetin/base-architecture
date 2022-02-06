@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using AdaBis.Dal.SqlServer.Abstract;
+﻿using BaseArchitecture.DAL.Abstract;
 using Microsoft.EntityFrameworkCore;
 
-namespace AdaBis.Dal.SqlServer.Concrete
+namespace BaseArchitecture.DAL.Concrete
 {
     public class EfEntityDal<T> : IEfEntityDal<T> where T : class
     {

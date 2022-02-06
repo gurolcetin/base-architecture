@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace BaseArchitecture.BLL.Abstract
+﻿namespace BaseArchitecture.BLL.Abstract
 {
     public interface IEntityManager<T>
     {
