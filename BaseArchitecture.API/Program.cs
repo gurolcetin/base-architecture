@@ -1,3 +1,4 @@
+using BaseArchitecture.BLL.Concrete;
 using BaseArchitecture.DAL.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -15,6 +16,7 @@ builder.Services.AddSwaggerGen(s =>
 {
     s.SwaggerDoc("v1", new OpenApiInfo { Title = "Base Architecture API", Version = "v1" });
 });
+builder.Services.AddScoped(typeof(EntityManager<>));
 
 var app = builder.Build();
 

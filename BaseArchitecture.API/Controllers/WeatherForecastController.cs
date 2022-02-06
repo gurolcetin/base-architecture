@@ -1,33 +1,32 @@
+using BaseArchitecture.BLL.Concrete;
+using BaseArchitecture.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BaseArchitecture.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+        private readonly ILogger<WeatherForecastController> _logger; 
+        private readonly EntityManager<WeatherForecast> _weatherForecastManager;
 
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, EntityManager<WeatherForecast> weatherForecastManager)
         {
             _logger = logger;
+            _weatherForecastManager = weatherForecastManager;
         }
 
-        [HttpGet(Name = "GetWeatherForecast")]
+        [HttpGet(Name = "GetAll")]
         public IEnumerable<WeatherForecast> Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            return _weatherForecastManager.GetAll();
+        }
+
+        [HttpGet("{id}", Name = "GetFirst")]
+        public WeatherForecast GetFirst(int id)
+        {
+            return _weatherForecastManager.GetFirst(x=>x.Id == id);
         }
     }
 }

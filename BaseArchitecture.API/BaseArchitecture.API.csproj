@@ -17,6 +17,7 @@
   </ItemGroup>
   
   <ItemGroup>
+    <ProjectReference Include="..\BaseArchitecture.BLL\BaseArchitecture.BLL.csproj" />
     <ProjectReference Include="..\BaseArchitecture.DAL\BaseArchitecture.DAL.csproj" />
   </ItemGroup>
   
