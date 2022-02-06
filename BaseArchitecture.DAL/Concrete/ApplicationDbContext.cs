@@ -1,5 +1,5 @@
-﻿using BaseArchitecture.API;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using BaseArchitecture.Entities;
 
 namespace BaseArchitecture.DAL.Concrete
 {
@@ -10,15 +10,6 @@ namespace BaseArchitecture.DAL.Concrete
         public ApplicationDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
         {
 
-        }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            // optionsBuilder.UseLazyLoadingProxies();
         }
     }
 
